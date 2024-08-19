@@ -1,14 +1,63 @@
+/* -----RESETEO----- */
 * {
-    padding: 0;
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+/*  -----VARIABLES------*/
+:root {
+    --primary-color: #201E43; ;
+    --secondary-color: #508C9B;
+    --text-color: #201E43;
+    --navbar-text-color: #f8f8f8;
+    --background-color: #EEEEEE;
+    --background-navbar: #14192d;
+    --font-family: 'Montserrat', sans-serif;
+}
+
+/* -----ESTILOS GENERALES------*/
+
+html, body {
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-color);
+}
+
+a {
+    color: var(--navbar-text-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.flexRow {
+    display: flex;
+    flex-direction: row
+}
+
+.flexColumn {
+    display: flex;
+    flex-direction: column
+}
+
+/* -----ESTILOS DEL NAVBAR------ */
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(15, 13, 136);
+    background-color: var(--background-navbar);
     padding: 25px 20px; 
 }
 
@@ -27,13 +76,27 @@
     margin-left: 20px; 
 }
 
-.nav-links a {
-    text-decoration: none;
-    color: white;
+/* ------ESTILOS DEL HOME------- */
+
+main div img {
+    height: 100vh;
+    width: 45vw;
 }
 
-h1 {
-    margin-top: 10px;
-    text-align: center;
-    color: rgb(92, 91, 91);
+.contenedor {
+    margin: 40px;
+    padding: 50px;
+    font-size: 20px;
+}
+
+.contenedor h1 {
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+
+.contenedor p {
+    font-size: 20px;
+    line-height: 1.7;;
+    margin-bottom: 20px;
+    text-align: justify;
 }
