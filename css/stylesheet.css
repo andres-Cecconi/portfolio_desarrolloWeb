@@ -95,10 +95,11 @@ a:hover {
     position: absolute;
     top: 50%;
     left: 0;
-    transform: translateY(-50%);
+    transform: translateY(-62%);
     width: 100%;
     height: auto;
     z-index: 10;
+    mask-image: linear-gradient(black 99%, transparent);
 }
 
 .contenedorTexto {
@@ -116,7 +117,6 @@ a:hover {
 .contenedorTexto p {
     font-size: 20px;
     line-height: 1.7;
-    ;
     margin-bottom: 20px;
     text-align: justify;
 }
@@ -147,7 +147,6 @@ h1 {
 .texto p {
     font-size: 20px;
     line-height: 1.7;
-    ;
     margin-bottom: 20px;
     text-align: justify;
 }
@@ -253,4 +252,13 @@ h1 {
     background-position: right center; 
     color: #fff;
     text-decoration: none;
+}
+
+/* -----ESTILOS FOOTER------ */
+
+footer {
+    background-color: var(--background-navbar);
+    color: var(--navbar-text-color);
+    padding: 50px;
+    text-align: center;
 }
