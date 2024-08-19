@@ -19,19 +19,13 @@
 
 /* -----ESTILOS GENERALES------*/
 
-html,
-body {
+html, body {
     font-family: var(--font-family);
     color: var(--text-color);
     background-color: var(--background-color);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
     color: var(--primary-color);
 }
 
@@ -129,7 +123,7 @@ a:hover {
 
 /* -----ESTILOS PAGINA SERVICIOS------ */
 
-.container {
+.contenedorGrid {
     display: grid;
     grid-template-columns: 0.9fr 1.1fr 1fr;
     grid-template-rows: 0.8fr;
@@ -143,10 +137,13 @@ a:hover {
     grid-area: texto;
     margin: 50px 40px;
 }
-.texto img, h1 {
+
+.texto img,
+h1 {
     font-size: 50px;
     margin-bottom: 40px;
 }
+
 .texto p {
     font-size: 20px;
     line-height: 1.7;
@@ -154,7 +151,6 @@ a:hover {
     margin-bottom: 20px;
     text-align: justify;
 }
-
 
 .imagenes {
     display: grid;
@@ -177,6 +173,7 @@ a:hover {
     width: 100%;
     height: 100%;
 }
+
 .img2 {
     grid-area: img2;
     object-fit: cover;
@@ -185,6 +182,7 @@ a:hover {
     width: 100%;
     height: 100%;
 }
+
 .img3 {
     grid-area: img3;
     object-fit: cover;
@@ -193,6 +191,7 @@ a:hover {
     width: 100%;
     height: 100%;
 }
+
 .img4 {
     grid-area: img4;
     object-fit: cover;
@@ -200,4 +199,58 @@ a:hover {
 .img4 img {
     width: 100%;
     height: 100%;
+}
+
+/* -----ESTILOS DE la PAGINA CONTACTAME------ */
+
+.formulario {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: (var(--background-color));
+    border-radius: 8px;
+    box-shadow: 0 0 15px 15px rgba(0, 0, 0, 0.1);
+}
+
+.formulario h1 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.formulario label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.formulario input, .formulario textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.formulario button {
+    background-image: linear-gradient(to right, var(--secondary-color) 0%, var(--primary-color)  51%, var(--secondary-color)  100%);
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+    font-size: 16px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.formulario button:hover {
+    background-position: right center; 
+    color: #fff;
+    text-decoration: none;
 }
