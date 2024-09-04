@@ -254,6 +254,14 @@ h1 {
     text-decoration: none;
 }
 
+/* -----ESTILOS DE la PAGINA ABOUTME------ */
+
+.textoAboutMe {
+    padding: 25px;
+    justify-content: center;
+    align-items: center;
+}
+
 /* -----ESTILOS FOOTER------ */
 
 footer {
