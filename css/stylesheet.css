@@ -262,6 +262,49 @@ h1 {
     align-items: center;
 }
 
+/* -----ESTILOS DE la PAGINA PROYECTOS------ */
+
+.proyectos {
+    padding: 25px;
+}
+
+.proyectosContainer {
+    padding: 50px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.moodifyLogo {
+    padding-top: 70px;
+    padding-left: 50px;
+    width: 65%;
+}
+
+.appleLogo {
+    padding-left: 50px;
+    padding-bottom: 50px;
+    width: 25%;
+}
+
+.hsLogo {
+    padding-top: 70px;
+    padding-left: 50px;
+    width: 25%;
+}
+
+
+.textoProyectos {
+    padding: 25px 60px;
+    text-align: justify;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
 /* -----ESTILOS FOOTER------ */
 
 footer {
