@@ -301,7 +301,31 @@ h1 {
     align-items: center;
 }
 
+/* -----ESTILOS PAGINA CV------ */
 
+.cvContainer {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cvPerfil {
+    justify-content: center;
+    width: 75%;
+}
+
+.cvInfo {
+    margin: 50px;
+    padding: 25px;
+    display: flex;
+    flex-direction: row;
+    gap: 4%;
+}
+
+.infoItem {
+    padding: 15px;
+}
 
 
 
