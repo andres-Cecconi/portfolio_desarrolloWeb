@@ -82,42 +82,22 @@ a:hover {
 .contenedor {
     display: flex;
     flex-direction: row;
-    width: 100vw;
-    height: 100vh;
 }
 
 .contenedorImagen {
-    flex: 1.3;
-    position: relative;
-}
-
-.contenedorImagen img {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-62%);
-    width: 100%;
-    height: auto;
-    z-index: 10;
-    mask-image: linear-gradient(black 99%, transparent);
+    display: flex;
 }
 
 .contenedorTexto {
-    flex: 1;
-    width: 40%;
-    margin: 100px 50px;
+    margin: 0;
     padding: 50px;
-}
-
-.contenedorTexto h1 {
-    font-size: 50px;
-    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
 }
 
 .contenedorTexto p {
-    font-size: 20px;
-    line-height: 1.7;
-    margin-bottom: 20px;
     text-align: justify;
 }
 
@@ -125,8 +105,8 @@ a:hover {
 
 .contenedorGrid {
     display: grid;
-    grid-template-columns: 0.9fr 1.1fr 1fr;
-    grid-template-rows: 0.8fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
     gap: 0px 0px;
     grid-auto-flow: row;
     grid-template-areas:
@@ -135,7 +115,7 @@ a:hover {
 
 .texto {
     grid-area: texto;
-    margin: 50px 40px;
+    margin: 50px 30px;
 }
 
 .texto img,
@@ -161,7 +141,7 @@ h1 {
         "img img2"
         "img3 img4";
     grid-area: imagenes;
-    margin: 50px 40px;
+    margin: 50px 30px;
 }
 
 .img {
@@ -255,11 +235,19 @@ h1 {
 }
 
 /* -----ESTILOS DE la PAGINA ABOUTME------ */
-
+.imagenAboutMe {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 .textoAboutMe {
     padding: 25px;
     justify-content: center;
     align-items: center;
+}
+
+.textoAboutMe p {
+    line-height: normal;
 }
 
 /* -----ESTILOS DE la PAGINA PROYECTOS------ */
@@ -269,21 +257,30 @@ h1 {
 }
 
 .proyectosContainer {
-    padding: 50px;
+    padding: 0px 15px 25px 15px;
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 5px;
 }
 
+.containerImagenProyectos {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagenProyectos {
+    width: 500px;
+}
 .moodifyLogo {
     padding-top: 70px;
     padding-left: 50px;
-    width: 65%;
+    width: 250px;
 }
 
 .appleLogo {
     padding-left: 50px;
-    padding-bottom: 50px;
     width: 25%;
 }
 
@@ -312,19 +309,35 @@ h1 {
 
 .cvPerfil {
     justify-content: center;
-    width: 75%;
+    width: 750px;
 }
 
 .cvInfo {
-    margin: 50px;
-    padding: 25px;
+    margin: 0px 50px;
+    padding: 10px;
     display: flex;
     flex-direction: row;
-    gap: 4%;
 }
 
-.infoItem {
-    padding: 15px;
+.infoRow1 {
+    width: 75%;
+
+}
+
+.infoItem1 {
+    padding: 5px 15px;
+}
+
+.infoItem2 {
+    padding: 5px 15px;
+}
+
+.infoItem2 h3, div {
+    padding-bottom: 25px;
+}
+
+.infoItem2 h4 {
+    padding-bottom: 5px;
 }
 
 
@@ -337,3 +350,13 @@ footer {
     padding: 50px;
     text-align: center;
 }
+
+
+/* MEDIA QUERIES */
+
+
+@media screen and (max-width: 960px) {
+    .fotoPrincipal {
+        display: none;
+    }
+}       
