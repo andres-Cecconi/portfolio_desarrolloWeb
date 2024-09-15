@@ -116,7 +116,7 @@ a:hover {
 
 .contenedorTexto {
     margin: 0;
-    padding: 50px 100px;
+    /* padding: 50px 100px; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -274,7 +274,7 @@ h1 {
 }
 .textoAboutMe {
     margin: 0;
-    padding: 50px 100px;
+    padding: 50px 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -401,6 +401,21 @@ footer {
         width: 350px;
         transition: ease-in-out 0.5s;
     }
+
+    .moodifyLogo {
+        width: 45%;
+        transition: ease-in-out 0.5s;
+    }
+
+    .appleLogo {  
+        width: 30%;
+        transition: ease-in-out 0.5s;
+    }
+
+    .hsLogo {   
+        width: 30%; 
+        transition: ease-in-out 0.5s;
+    }
 }
 
 
@@ -440,7 +455,7 @@ footer {
 
     .contenedorTexto {
         margin-top: 0px;
-        padding: 0px 100px;
+        padding: 2em;
     }
 
     .contenedorTexto h1 {
@@ -471,14 +486,15 @@ footer {
 
     .textoAboutMe {
         margin-top: 0px;
-        padding: 0px 100px;
+        padding: 0px 50px;
     }    
 
     /* proyectos */
     .proyectosContainer {
         display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: center;
+        margin: 0!important;
     }
 
     .containerImagenProyectos {
@@ -494,6 +510,24 @@ footer {
     }
 }      
 
-@media (max-width: 815px) {
+@media (max-width: 510px) {
+    .imagenProyectos {
+        width: 300px;
+        transition: ease-in-out 0.5s;
+    }
 
+    .moodifyLogo {
+        width: 50%;
+        transition: ease-in-out 0.5s;
+    }
+
+    .appleLogo {  
+        width: 35%;
+        transition: ease-in-out 0.5s;
+    }
+
+    .hsLogo {   
+        width: 35%; 
+        transition: ease-in-out 0.5s;
+    }
 }
