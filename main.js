@@ -1,3 +1,5 @@
+// MENU HAMBURGUESA
+
 const hamburguesa = document.querySelector('.hamburguesa');
 const navLinks = document.querySelector('.nav-links');
 
