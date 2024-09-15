@@ -77,6 +77,24 @@ a:hover {
     margin-left: 20px;
 }
 
+.hamburguesa {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburguesa span {
+    height: 3px;
+    width: 45px;
+    background: var(--navbar-text-color);
+    margin: 4px 10px;
+    transition: 0.4s;
+}
+
+.nav-links.active {
+    display: flex;
+}
+
 /* ------ESTILOS DEL HOME------- */
 
 .contenedor {
@@ -387,6 +405,30 @@ footer {
 
 
 @media screen and (max-width: 960px) {
+
+    /* navbar */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100px;
+        left: 0;
+        background-color: var(--background-navbar);
+        padding-left: 25px;
+        padding-bottom: 25px;
+    }
+
+    .nav-links li {
+        text-align: start;
+        margin: 10px 0;
+    }
+
+    .hamburguesa {
+        display: flex;
+    }
+
+    /* home */
     .contenedor {
         flex-direction: column;
     }
@@ -429,5 +471,5 @@ footer {
 }      
 
 @media (max-width: 815px) {
-    
+
 }
