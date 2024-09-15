@@ -86,11 +86,19 @@ a:hover {
 
 .contenedorImagen {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:50px 0px 50px 100px;
+}
+
+.contenedorImagen img {
+    width: 350px;
 }
 
 .contenedorTexto {
     margin: 0;
-    padding: 50px;
+    padding: 50px 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -238,12 +246,21 @@ h1 {
 .imagenAboutMe {
     display: flex;
     flex-direction: row;
-    align-items: center;
-}
-.textoAboutMe {
-    padding: 25px;
     justify-content: center;
     align-items: center;
+    padding:50px 0px 50px 100px;
+}
+
+.imagenAboutMe img {
+    width: 350px;
+}
+.textoAboutMe {
+    margin: 0;
+    padding: 50px 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
 }
 
 .textoAboutMe p {
@@ -263,6 +280,10 @@ h1 {
     gap: 5px;
 }
 
+.proyectosContainer p {
+    line-height: normal;
+}
+
 .containerImagenProyectos {
     display: flex;
     flex-direction: row;
@@ -276,18 +297,21 @@ h1 {
 .moodifyLogo {
     padding-top: 70px;
     padding-left: 50px;
-    width: 250px;
+    width: 35%;
+    margin-bottom: 0px!important;
 }
 
 .appleLogo {
     padding-left: 50px;
-    width: 25%;
+    width: 20%;
+    margin-bottom: 0px!important;
 }
 
 .hsLogo {
     padding-top: 70px;
     padding-left: 50px;
-    width: 25%;
+    width: 20%;
+    margin-bottom: 0px!important;
 }
 
 
@@ -309,7 +333,7 @@ h1 {
 
 .cvPerfil {
     justify-content: center;
-    width: 750px;
+    width: 70%;
 }
 
 .cvInfo {
@@ -353,10 +377,57 @@ footer {
 
 
 /* MEDIA QUERIES */
+@media (max-width: 1150px) {
+    .imagenProyectos {
+        width: 350px;
+        transition: ease-in-out 0.5s;
+    }
+}
+
 
 
 @media screen and (max-width: 960px) {
-    .fotoPrincipal {
-        display: none;
+    .contenedor {
+        flex-direction: column;
     }
-}       
+
+    .contenedorImagen {
+        padding:25px 0px 25px 0px;
+    }
+
+    .contenedorTexto {
+        margin-top: 0px;
+        padding: 0px 100px;
+    }
+
+    .contenedorTexto h1 {
+        text-align: center;
+    }
+
+    /* servicios */
+
+    .contenedorGrid {
+        display: flex!important;
+        flex-direction: column!important;
+    }
+
+    /* about me */
+
+    .flexRow {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .imagenAboutMe {
+        padding:25px 0px 25px 0px;
+    }
+
+    .textoAboutMe {
+        margin-top: 0px;
+        padding: 0px 100px;
+    }    
+}      
+
+@media (max-width: 815px) {
+    
+}
