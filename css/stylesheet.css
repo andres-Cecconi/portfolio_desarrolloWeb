@@ -1,5 +1,5 @@
 /* FONTS */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Questrial&display=swap');
 
 /* -----RESETEO----- */
 * {
@@ -12,30 +12,33 @@
 :root {
     --primary-color: rgb(4, 8, 19);
     ;
-    --secondary-color: rgb(9, 42, 118);
+    --secondary-color: rgb(8, 38, 109);
     --tertiary-color: rgb(84, 175, 235);
-    --text-color: rgb(4, 8, 19);
-    --navbar-text-color: rgb(4, 8, 19);
-    --background-color: rgb(255, 255, 255);
-    --background-light: rgb(235, 235, 235);
-    --background-dark: rgb(5, 14, 37);
-    --background-ld: rgba(14, 21, 45, 0.975);
-    --font-family: 'Montserrat', sans-serif;
+    --text-color-light: rgb(0, 0, 0);
+    --text-color-dark: rgb(255, 255, 255);
+    --navbar-text-color: rgb(0, 0, 0);
+    /* --background-color: rgb(241, 242, 247); */
+    --background-light: rgb(241, 242, 247);
+    --background-dark: rgb(0, 0, 0);
+    --background-ld: rgb(0, 0, 0)
+    --background-card: rgb(241, 242, 247);
+    --background-card-dark: rgb(61, 70, 77);
+    --background-card-interna-dark: rgb(95, 95, 95);
+    --font-family: 'Questrial', sans-serif;
 }
 
 /* -----ESTILOS GENERALES------*/
 
 html,
 body {
-    font-family: var(--font-family) !important;
-    color: var(--text-color);
-    background-color: var(--background-color);
+    font-family: var(--font-family)!important;
+    color: var(--text-color-light);
 }
 
 header {
     background-color: var(--background-light);
-    color: var(--navbar-text-color);
-    border-bottom: solid 1px var(--background-dark);
+    color: var(--text-color-light);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
 }
 
 h1,
@@ -44,9 +47,15 @@ h3,
 h4,
 h5,
 h6 {
-    color: var(--primary-color);
+    color: var(--text-color-light);
+    font-family: var(--font-family) !important;
+    ;
+}
+
+p {
+    color: var(--text-color-light);
     font-family: var(--font-family);
-    font-weight: bold;
+    margin-bottom: 0;
 }
 
 a {
@@ -62,6 +71,14 @@ a:hover {
     font-weight: bold;
 }
 
+.italic {
+    font-style: italic;
+}
+
+.justify {
+    text-align: justify;
+}
+
 .flexRow {
     display: flex;
     flex-direction: row
@@ -72,34 +89,49 @@ a:hover {
     flex-direction: column
 }
 
-.active-link {
-    background-image: linear-gradient(to right, var(--tertiary-color) 0%, var(--secondary-color) 100%, var(--secondary-color) 100%) !important;
-    text-decoration: none !important;
-}
-
 .dark {
     background-color: var(--background-dark);
+    color: var(--text-color-dark);
+}
+
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6, .dark p {
+    color: var(--text-color-dark);
 }
 
 .modo-oscuro {
     background-color: var(--background-dark);
-    color: var(--background-light);
+    color: var(--text-color-dark);
 }
 
-.dark p,
-.dark h1,
-.dark h2,
-.dark h3,
-.dark h4,
-.dark h5,
-.dark h6 {
+
+.boton-grad {
+    background-image: linear-gradient(to right, #2c3e50 0%, #3498db 51%, #2c3e50 100%)
+}
+
+.boton-grad {
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
     color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 25px;
+    display: block;
 }
 
-.dark header,
-.dark footer {
-    border-color: white;
+.boton-grad:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
 }
+
+
+
+
+
 
 /* -----ESTILOS DEL NAVBAR------ */
 
@@ -107,13 +139,12 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--background-navbar);
-    padding: 25px 20px;
+    padding: 30px 20px;
 }
 
 .logo img {
     cursor: pointer;
-    width: 150px;
+    width: 120px;
     height: auto;
 }
 
@@ -133,11 +164,11 @@ a:hover {
     width: 25px;
     height: auto;
     cursor: pointer;
+    align-items: center;
 }
 
 .nav-links li a {
-    background-color: rgb(165, 165, 165);
-    color: white;
+    color: var(--navbar-text-color);
     width: 6em;
     height: 5em;
     border-radius: 15px;
@@ -147,17 +178,35 @@ a:hover {
     align-items: center;
 }
 
+.nav-links li a:hover {
+    text-shadow: 0 0 10px rgb(19, 48, 108), 0 0 20px rgb(19, 48, 108), 0 0 40px rgb(19, 48, 108), 0 0 80px rgb(19, 48, 108);
+}
+
+.dark .nav-links li a {
+    color: var(--color-offwhite);
+}
+
+.active-link {
+    color: var(--secondary-color) !important;
+    font-weight: bold;
+}
+
+.dark .active-link {
+    color: var(--tertiary-color) !important;
+    font-weight: bold;
+    text-shadow: 0 0 10px var(--tertiary-color), 0 0 20px var(--tertiary-color), 0 0 40px var(--tertiary-color), 0 0 80px var(--tertiary-color);
+}
+
 .icono-blanco {
+    filter: invert(0);
+}
+
+.dark .icono-blanco {
     filter: invert(1);
 }
 
-.nav-links li a:hover {
-    background-image: linear-gradient(to right, var(--tertiary-color) 0%, var(--secondary-color) 100%, var(--secondary-color) 100%);
-    text-decoration: none;
-}
-
-.nav-links li {
-    margin: 0 10px;
+.dark .nav-links li a:hover {
+    text-shadow: 0 0 10px cyan, 0 0 20px cyan, 0 0 40px cyan, 0 0 80px cyan;
 }
 
 /* menu hamburguesa */
@@ -219,8 +268,7 @@ a:hover {
 }
 
 /* boton toggle darkmode*/
-/* From Uiverse.io by 3bdel3ziz-T */
-/* The switch container */
+/* switch container */
 .switch {
     --transition: 300ms;
     --transition500: 500ms;
@@ -345,29 +393,27 @@ a:hover {
 }
 
 .dark .burger span {
-    background-color: #fff!important;
+    background-color: #fff !important;
 }
 
 .dark .nav-links {
-    background-color:var(--background-dark)!important;
+    background-color: var(--background-dark) !important;
 }
 
 @media (max-width: 935px) {
     .nav-links {
         display: none;
-        /* Ocultamos el menú en pantallas pequeñas */
         flex-direction: column;
         position: absolute;
         top: 60px;
         right: 0;
-        background-color: #333;
         width: 100%;
         padding: 20px 0;
+        z-index: 1000;
     }
 
     .nav-links.active {
         display: flex;
-        /* Mostramos el menú cuando está activo */
         color: black;
         background-color: var(--background-light);
         margin-top: 5em;
@@ -375,20 +421,121 @@ a:hover {
         padding: 1em;
     }
 
+    .dark .nav-links.active {
+        color: var(--color-offwhite);
+    }
+
     .burger {
         display: block;
-        /* Mostramos el ícono del menú hamburguesa */
     }
 }
 
 
 
 
+
+
+
+
 /* ------ESTILOS DEL HOME------- */
+.container-perfil {
+    display: flex;
+    gap: 2em;
+    margin: 3em;
+}
+
+#perfil {
+    flex-grow: 1;
+    width: 40%;
+    border-radius: 15px;
+}
+
+#perfil img {
+    width: 20vw;
+    height: auto;
+    margin: 0 auto;
+}
+
+.card-perfil {
+    border-radius: 15px;
+    ;
+}
+
+.dark .card-perfil {
+    background-color: var(--background-card-dark);
+}
+
+.card-interna-perfil {
+    background-color: var(--background-light);
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 12px;
+}
+
+.dark .card-interna-perfil {
+    background-color: var(--background-card-interna-dark);
+}
+
+.card-interna-perfil img {
+    width: 2em !important;
+    height: auto;
+    margin: 0 auto !important;
+}
+
+.card-body {
+    flex-grow: 1;
+}
+
+.botonera-redes-perfil {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    margin: 2em 0;
+}
+
+.botonera-redes-perfil a img {
+    width: 2.5em !important;
+    height: auto;
+    cursor: pointer;
+}
+
+.botonera-redes-perfil a img:hover {
+    transform: scale(1.1);
+}
+
+#sobre-mi {
+    flex-grow: 1;
+    width: 60%;
+}
+
+.card-sobre-mi {
+    border-radius: 15px;
+}
+
+.dark .card-sobre-mi {
+    background-color: var(--background-card-dark);
+}
+
+
+
+
+
 
 
 
 /* -----ESTILOS PAGINA SERVICIOS------ */
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* -----ESTILOS DE la PAGINA CONTACTAME---- */
@@ -460,9 +607,98 @@ a:hover {
     text-decoration: none;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* -----ESTILOS DE la PAGINA PROYECTOS------ */
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* -----ESTILOS PAGINA CV------ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* -----ESTILOS FOOTER------ */
@@ -472,5 +708,5 @@ footer {
     color: var(--primary-color);
     padding: 50px;
     text-align: center;
-    border-top: solid 1px var(--background-dark);
+    box-shadow: 4px 0px 8px 04px rgba(0, 0, 0, 0.2);
 }
