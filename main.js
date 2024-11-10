@@ -89,6 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+        //Validacion del campo mensaje, si el campo mensaje está vacío, se muestra un mensaje de error
         if (mensaje === '') {
             Swal.fire({
                 title: 'Error',
@@ -111,13 +112,35 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // Si todo está bien, envía el formulario
-        Swal.fire({
-            title: 'Gracias por tu mensaje',
-            text: 'Tu mensaje ha sido enviado con éxito',
-            icon: 'success',
-            confirmButtonText: 'Aceptar'
-        });
+        //Se valida el captcha
+        const captchaResponse = grecaptcha.getResponse();
+        const secretKey = '6LezU3oqAAAAAO9ysCE2-bAb1KcmELGxn9VOUb9J';
+
+        fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${captchaResponse}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Si el captcha es válido, se envía el formulario
+                    Swal.fire({
+                        title: 'Mensaje enviado',
+                        text: 'Tu mensaje ha sido enviado con éxito',
+                        icon: 'success',
+                        confirmButtonText: 'Aceptar'
+                    });
+                    formulario.reset();
+                } else {
+                    // Si el captcha no es válido, se muestra un mensaje de error
+                    Swal.fire({
+                        title: 'Error',
+                        text: 'Por favor, completa el captcha',
+                        icon: 'error',
+                        confirmButtonText: 'Aceptar'
+                    });
+                }
+            })
+            .catch(error => {
+                console.error(error);
+            });
 
         //Se resetea el formulario al finalizar el envío
         formulario.reset();
@@ -142,33 +165,4 @@ document.addEventListener("DOMContentLoaded", () => {
         //Se descarga el archivo curriculum.pdf con el nombre curriculum.pdf
         enlace.download = nombreArchivo;
     });
-
-    //VALIDACION DEL CAPTCHA
-    const captchaResponse = grecaptcha.getResponse();
-    const secretKey = '6LezU3oqAAAAAO9ysCE2-bAb1KcmELGxn9VOUb9J';
-
-    fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${captchaResponse}`)
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                //mensaje de éxito con SweetAlert2
-                Swal.fire({
-                    title: 'Mensaje enviado',
-                    text: 'Tu mensaje ha sido enviado con éxito',
-                    icon: 'success',
-                    confirmButtonText: 'Aceptar'
-                });
-            } else {
-                //mensaje de error con SweetAlert2
-                Swal.fire({
-                    title: 'Error',
-                    text: 'Por favor, completa el captcha',
-                    icon: 'error',
-                    confirmButtonText: 'Aceptar'
-                });
-            }
-        })
-        .catch(error => {
-            console.error(error);
-        });
 });
