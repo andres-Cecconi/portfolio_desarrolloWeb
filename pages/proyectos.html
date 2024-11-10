@@ -16,17 +16,14 @@
         <nav class="navbar">
             <div class="logo">
                 <a href="../index.html"><img src="../assets/logo-no-bg.png" alt="logo"></a>
+                <p>Andres Cecconi</p>
             </div>
             <div class="d-flex align-items-center gap-4">
                 <ul class="nav-links">
-                    <li><a href="../pages/servicios.html" ><img src="../assets/laptop.svg" alt="servicios"
-                                class="icono-blanco">Servicios</a></li>
-                    <li><a href="../pages/proyectos.html" class="active-link"><img src="../assets/code.svg" alt="proyectos"
-                                class="icono-blanco">Proyectos</a></li>
-                    <li><a href="../pages/curriculum.html"><img src="../assets/file-earmark-text.svg" alt="cv"
-                                class="icono-blanco">CV</a></li>
-                    <li><a href="../pages/contactame.html"><img src="../assets/person-circle.svg" alt="contactame"
-                                class="icono-blanco">Contacto</a></li>
+                    <li><a href="../pages/servicios.html">Servicios</a></li>
+                    <li><a href="../pages/proyectos.html">Proyectos</a></li>
+                    <li><a href="../pages/curriculum.html">CV</a></li>
+                    <li><a href="../pages/contactame.html">Contacto</a></li>
                 </ul>
                 <div class="burger">
                     <span></span>
@@ -50,40 +47,129 @@
         </nav>
     </header>
 
-    <!-- <main>
-        <div class="proyectos">
-            <div class="proyectosContainer texto">
-                <div class="containerImagenProyectos">
-                    <img class="imagenProyectos" src="../assets/moodifyPrototipo.png" alt="">
-                </div>
-                <div>
-                    <img class="moodifyLogo" src="../assets/moodify.png" alt="">
-                    <p class="textoProyectos"><strong>Moodify</strong> es un proyecto familiar que proporciona a los usuarios la capacidad de crear playlists de películas y series personalizadas según su estado de ánimo. Además, la plataforma permite a los usuarios  participar en debates y discusiones con otros usuarios sobre películas y series específicas. Moodify ofrece una experiencia completa de descubrimiento y disfrute del cine, además de fomentar una comunidad activa de cinéfilos.</p>
-                </div>
-                
-                
-            </div>
-            <div class="proyectosContainer texto">
-                <div class="containerImagenProyectos">
-                    <img class="imagenProyectos" src="../assets/applePrototipo.png" alt="">
-                </div>
-                <div>
-                    <img class="appleLogo" src="../assets/appleLogo.png" alt="">
-                    <p class="textoProyectos "><strong>Apple Store Clone</strong> fue mi proyecto final del curso de React de Coderhouse, en donde recreé la tienda online de Apple con un enfoque en la usabilidad y la experiencia del usuario. Este proyecto simula la interfaz de la tienda, permitiendo explorar productos, ver detalles, y añadir items al carrito. </p>
-                </div>
-            </div>
-            <div class="proyectosContainer texto">
-                <div>
-                    <img class="imagenProyectos" src="../assets/hsPrototipo.png" alt="">
-                </div>
-                <div>
-                    <img class="hsLogo" src="../assets/hsLogo.png" alt="">
-                    <p class="textoProyectos"><strong>HS Consulting Website.</strong> Este proyecto consistió en el desarrollo del sitio web para HS Consulting, una consultora especializada en servicios empresariales y tecnológicos. El objetivo fue crear una plataforma moderna y profesional que reflejara la identidad de la marca y destacara sus principales servicios. </p>
-                </div>
-            </div>
-        </div>
-    </main> -->
+    <main>
+        <div class="container-perfil container-proyectos">
+            <section id="perfil">
+                <!-- Card perfil Izquierdo -->
+                <div class="card card-perfil">
+                    <img src="../assets/fotoPerfil3.png" class="card-img-top mt-5"
+                        alt="Foto de perfil de Andres Cecconi">
+                    <div class="card-body d-flex flex-column align-items-center">
+                        <h2 class="bold fs-1">Andres Cecconi</h2>
+                        <h5 class="fs-4">Frontend Developer</h5>
+                        <div class="botonera-redes-perfil">
+                            <a href="" class="icono-blanco"><img src="../assets/linkedin.svg" alt="linkedin"></a>
+                            <a href="" class="icono-blanco"><img src="../assets/github.svg" alt="github"></a>
+                        </div>
 
+                        <!-- card interna -->
+                        <div class="card card-interna-perfil mb-5">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center justify-content-start mt-2 mb-5">
+                                    <img class="w-25 icono-blanco" src="../assets/whatsapp.svg" alt="whatsapp">
+                                    <div class="w-75">
+                                        <p class="fs-5">Celular</p>
+                                        <p class="bold fs-5">+549 11 12345678</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-start mb-5">
+                                    <img class="w-25 icono-blanco" src="../assets/envelope-at.svg" alt="email">
+                                    <div class="w-75">
+                                        <p class="fs-5">Email</p>
+                                        <p class="bold fs-5">acecconi@uade.edu.ar</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-start mb-2">
+                                    <img class="w-25 icono-blanco" src="../assets/geo-alt.svg" alt="whatsapp">
+                                    <div class="w-75">
+                                        <p class="fs-5">Ubicacion</p>
+                                        <p class="bold fs-5">Buenos Aires, Argentina</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="boton-grad mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                                class="bi bi-cloud-arrow-down me-2" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M7.646 10.854a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0-.708-.708L8.5 9.293V5.5a.5.5 0 0 0-1 0v3.793L6.354 8.146a.5.5 0 1 0-.708.708z" />
+                                <path
+                                    d="M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383m.653.757c-.757.653-1.153 1.44-1.153 2.056v.448l-.445.049C2.064 6.805 1 7.952 1 9.318 1 10.785 2.23 12 3.781 12h8.906C13.98 12 15 10.988 15 9.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 4.825 10.328 3 8 3a4.53 4.53 0 0 0-2.941 1.1z" />
+                            </svg>Descaragar curriculum</a>
+                    </div>
+                </div>
+            </section>
+            <!-- Seccion Proyectos -->
+            <section id="sobre-mi">
+                <div class="d-flex flex-wrap justify-content-center gap-3">
+                    <!-- card interna moodify -->
+                    <div class="card card-externa-proyectos moodify" style="width: 25rem;">
+                        <img src="../assets/moodify.png" class="card-img-top" alt="moodify">
+                        <div class="card card-interna-proyectos" style="width: 25rem;">
+                            <div class="card-body">
+                                <p class="card-text">Moodify es un proyecto familiar que proporciona a los
+                                    usuarios la capacidad de crear playlists de películas y series
+                                    personalizadas según su estado de ánimo. Además, la plataforma permite a
+                                    los usuarios participar en debates y discusiones con otros usuarios
+                                    sobre películas y series específicas. Moodify ofrece una experiencia
+                                    completa de descubrimiento y disfrute del cine, además de fomentar una
+                                    comunidad activa de cinéfilos.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- card interna hs -->
+                    <div class="card card-externa-proyectos hs" style="width: 25rem;">
+                        <img src="../assets/hs.png" class="card-img-top" alt="hs">
+                        <div class="card card-interna-proyectos" style="width: 25rem;">
+                            <div class="card-body">
+                                <p class="card-text">HS Consulting Website. Este proyecto consistió en el
+                                    desarrollo del sitio web para HS Consulting, una consultora
+                                    especializada en servicios empresariales y tecnológicos. El objetivo fue
+                                    crear una plataforma moderna y profesional que reflejara la identidad de
+                                    la marca y destacara sus principales servicios. </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- card interna apple -->
+                    <div class="card card-externa-proyectos apple" style="width: 25rem;">
+                        <img src="../assets/apple.png" class="card-img-top" alt="apple">
+                        <div class="card card-interna-proyectos" style="width: 25rem;">
+                            <div class="card-body">
+                                <p class="card-text">Apple Store Clone fue mi proyecto final del curso de
+                                    React
+                                    de Coderhouse, en donde recreé la tienda online de Apple con un enfoque
+                                    en
+                                    la usabilidad y la experiencia del usuario. Este proyecto simula la
+                                    interfaz
+                                    de la tienda, permitiendo explorar productos, ver detalles, y añadir
+                                    items
+                                    al carrito.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- card interna tigrevet -->
+                    <div class="card card-externa-proyectos tigrevet" style="width: 25rem;">
+                        <img src="../assets/tigrevet-2.png" class="card-img-top mb-4" alt="Tigre Vet">
+                        <div class="card card-interna-proyectos" style="width: 25rem;">
+                            <div class="card-body">
+                                <p class="card-text">Tigrevet es un proyecto de una clínica veterinaria
+                                    ubicada
+                                    en Tigre, Buenos Aires, que se enfoca en brindar servicios de atención
+                                    veterinaria y promover el cuidado de la fauna local. La veterinaria no
+                                    solo
+                                    ofrece consultas y tratamientos clínicos, sino que también se dedica a
+                                    educar a la comunidad sobre la conservación y bienestar de los animales en
+                                    la zona de Tigre.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
 
     <footer>
         <div>

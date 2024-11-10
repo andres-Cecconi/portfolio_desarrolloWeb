@@ -17,13 +17,14 @@
     --text-color-light: rgb(0, 0, 0);
     --text-color-dark: rgb(255, 255, 255);
     --navbar-text-color: rgb(0, 0, 0);
-    /* --background-color: rgb(241, 242, 247); */
     --background-light: rgb(241, 242, 247);
     --background-dark: rgb(0, 0, 0);
-    --background-ld: rgb(0, 0, 0)
+    /* --background-ld: rgb(0, 0, 0) */
     --background-card: rgb(241, 242, 247);
     --background-card-dark: rgb(61, 70, 77);
     --background-card-interna-dark: rgb(95, 95, 95);
+    --background-tecnologias-light: rgb(225, 232, 240);
+    --background-tecnologias-dark: rgb(95, 95, 95);
     --font-family: 'Questrial', sans-serif;
 }
 
@@ -31,7 +32,7 @@
 
 html,
 body {
-    font-family: var(--font-family)!important;
+    font-family: var(--font-family) !important;
     color: var(--text-color-light);
 }
 
@@ -94,7 +95,13 @@ a:hover {
     color: var(--text-color-dark);
 }
 
-.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6, .dark p {
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6,
+.dark p {
     color: var(--text-color-dark);
 }
 
@@ -139,13 +146,31 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 20px;
+    padding: 1em 2em;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.5s;
+}
+
+.logo p {
+    margin-left: 2em;
+    margin-top: 0;
 }
 
 .logo img {
+    margin-left: 2em;
     cursor: pointer;
     width: 120px;
     height: auto;
+
+}
+
+.logo:hover {
+    transform: scale(1.1);
 }
 
 .nav-links {
@@ -319,7 +344,7 @@ a:hover {
 }
 
 .switch .sun .dot {
-    positon: relative;
+    position: relative;
     display: block;
     width: 3px;
     height: 3px;
@@ -477,9 +502,12 @@ a:hover {
 }
 
 .card-interna-perfil img {
-    width: 2em !important;
+    width: 1.5em !important;
     height: auto;
-    margin: 0 auto !important;
+}
+
+.perfil-paginas {
+    padding: 1em 0;
 }
 
 .card-body {
@@ -516,95 +544,48 @@ a:hover {
     background-color: var(--background-card-dark);
 }
 
+@media (max-width: 960px) {
+    .container-perfil {
+        flex-direction: column;
+    }
 
+    #perfil {
+        width: 100%;
+    }
 
+    #sobre-mi {
+        width: 100%;
+    }
 
-
-
-
-
-/* -----ESTILOS PAGINA SERVICIOS------ */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* -----ESTILOS DE la PAGINA CONTACTAME---- */
-#contacto {
-    /* margin: 5em 15em ; */
-    background-image: url(../assets/fondo-contacto-7.avif);
-    background-size: cover;
-    background-position: bottom;
-    color: var(--primary-color);
-    padding: 50px;
-    text-align: center;
-    border-radius: 10px;
+    #contacto {
+        width: 100% !important;
+    }
 }
 
-.formulario {
-    width: 50%;
-    margin: 0 auto;
-    padding: 20px;
-    border: solid 2px white;
-    background-color: transparent;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 20px rgb(160, 160, 160);
-    border-radius: 25px;
+@media (max-width: 650px) {
+    .que-hago {
+        flex-direction: column;
+    }
 }
 
-.formulario h1 {
-    color: black;
-    margin-bottom: 20px;
-    text-align: center;
+/* -----ESTILOS DE la PAGINA SERVICIOS--- */
+
+@media (max-width: 960px) {
+    .container-servicios {
+        #perfil {
+            display: none;
+        }
+    }
 }
 
-.formulario label {
-    display: block;
-    text-align: left;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: black;
-}
+@media (max-width: 650px) {
+    .card-servicios {
+        flex-direction: column;
+    }
 
-.formulario input,
-.formulario textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.formulario button {
-    background-image: linear-gradient(to right, var(--tertiary-color) 0%, var(--secondary-color) 51%, var(--secondary-color) 100%);
-    margin: 10px;
-    padding: 15px 45px;
-    text-align: center;
-    text-transform: uppercase;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: white;
-    box-shadow: 0 0 20px #eee;
-    border-radius: 10px;
-    display: block;
-    font-size: 16px;
-    width: 100%;
-    cursor: pointer;
-}
-
-.formulario button:hover {
-    background-position: right center;
-    color: #fff;
-    text-decoration: none;
+    .boton-grad {
+        font-size: 11px;
+    }
 }
 
 
@@ -612,101 +593,177 @@ a:hover {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* -----ESTILOS DE la PAGINA PROYECTOS------ */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* -----ESTILOS PAGINA CV------ */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* -----ESTILOS FOOTER------ */
-
-footer {
+/* -----ESTILOS PAGINA PROYECTOS------ */
+.card-interna-proyectos {
     background-color: var(--background-light);
-    color: var(--primary-color);
-    padding: 50px;
-    text-align: center;
-    box-shadow: 4px 0px 8px 04px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 12px;
+    height: 16rem;
 }
+
+.dark .card-interna-proyectos {
+    background-color: var(--background-card-interna-dark);
+}
+
+.card-interna-proyectos img {
+    width: 100%;
+    margin: 0 auto;
+    height: 150px;
+}
+
+.card-externa-proyectos {
+    border-radius: 15px;
+    border: none;
+    background-color: transparent;
+}
+
+.dark .hs img {
+    filter: invert(1);
+}
+
+.dark .apple img {
+    filter: invert(1);
+}
+
+.dark .tigrevet img {
+    margin-bottom: 1.5em;
+}
+
+@media (max-width: 960px) {
+    .container-proyectos {
+        #perfil {
+            display: none;
+        }
+    }
+
+    .card-interna-proyectos {
+        width: 100% !important;
+        height: auto;
+    }
+}
+
+
+
+
+/* SECCION CURRICULUM */
+.card-curriculum {
+    border-radius: 15px;
+    width: 100%;
+}
+
+.dark .card-curriculum {
+    background-color: var(--background-card-dark);
+}
+
+.card-interna-curriculum {
+    background-color: var(--background-light);
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 12px;
+    box-shadow: 0 0 8px rgb(0, 0, 0);
+}
+
+.dark .card-interna-curriculum {
+    background-color: var(--background-card-interna-dark);
+    box-shadow: 0 0 8px rgb(178, 175, 175);
+}
+
+.tecnologias {
+    border: solid 1px var(--text-color-light);
+    background-color: var(--background-tecnologias-light);
+    border-radius: 1em;
+    padding: 0 0.7em;
+}
+
+.dark .tecnologias {
+    background-color: var(--background-tecnologias-dark);
+}
+
+.carousel-item img {
+    width: 87%;
+    height: auto;
+    border-radius: 15px;
+}
+
+@media (max-width: 960px) {
+    .container-curriculum {
+        #perfil {
+            display: none;
+        }
+    }
+}
+
+    /* -----ESTILOS DE la PAGINA CONTACTAME---- */
+
+
+    #contacto {
+        width: 70%;
+        background-image: url(../assets/formulario-light.jpg);
+        background-size: cover;
+        background-position: top;
+        color: var(--primary-color);
+        padding: 50px;
+        text-align: center;
+        border-radius: 10px;
+    }
+
+    .formulario {
+        width: 80%;
+        margin: 0 auto;
+        padding: 3em;
+        border: solid 2px white;
+        background-color: transparent;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 0 20px rgb(160, 160, 160);
+        border-radius: 25px;
+    }
+
+    .formulario h1 {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .formulario label {
+        display: block;
+        text-align: left;
+        margin-bottom: 8px;
+        font-weight: bold;
+    }
+
+    .formulario input,
+    .formulario textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+    .dark #contacto {
+        background-image: url(../assets/formulario-dark-2.jpg);
+    }
+
+    .dark .formulario label {
+        color: var(--text-color-dark);
+    }
+
+    @media (max-width: 960px) {
+        .container-contacto {
+            #perfil {
+                display: none;
+            }
+        }
+    }
+
+
+
+    /* -----ESTILOS FOOTER------ */
+
+    footer {
+        background-color: var(--background-light);
+        color: var(--primary-color);
+        padding: 50px;
+        text-align: center;
+        box-shadow: 4px 0px 8px 04px rgba(0, 0, 0, 0.2);
+    }
