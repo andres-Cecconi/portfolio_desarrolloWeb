@@ -58,31 +58,57 @@ document.addEventListener("DOMContentLoaded", () => {
         const mensaje = mensajeInput.value.trim();
 
         if (nombre === '') {
-            alert('Por favor, ingresa tu nombre');
+            Swal.fire({
+                title: 'Error',
+                text: 'Por favor, ingresa tu nombre',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            });
             nombreInput.focus();
             return;
         }
 
         if (!email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
-            alert('Por favor, ingresa un email válido');
+            Swal.fire({
+                title: 'Error',
+                text: 'Por favor, ingresa un email válido',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            });
             emailInput.focus();
             return;
         }
 
         if (mensaje === '') {
-            alert('Por favor, ingresa un mensaje');
+            Swal.fire({
+                title: 'Error',
+                text: 'Por favor, ingresa un mensaje',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            });
             mensajeInput.focus();
             return;
         }
 
         if (mensaje.length < 10) {
-            alert('Por favor, ingresa un mensaje más largo (mínimo 10 caracteres)');
+            Swal.fire({
+                title: 'Error',
+                text: 'Por favor, ingresa un mensaje más largo (mínimo 10 caracteres)',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            });
             mensajeInput.focus();
             return;
         }
 
         // Si todo está bien, envía el formulario
-        alert('Formulario enviado correctamente');
+        Swal.fire({
+            title: 'Gracias por tu mensaje',
+            text: 'Tu mensaje ha sido enviado con éxito',
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
+        });
         formulario.reset();
     });
+
 });
