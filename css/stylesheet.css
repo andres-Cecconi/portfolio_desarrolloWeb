@@ -1,4 +1,4 @@
-/* FONTS */
+/* FUENTE QUESTRIAL */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Questrial&display=swap');
 
 /* -----RESETEO----- */
@@ -8,7 +8,7 @@
     box-sizing: border-box;
 }
 
-/*  -----VARIABLES------*/
+/*  -----VARIABLES GENERALES------*/
 :root {
     --primary-color: rgb(4, 8, 19);
     ;
@@ -129,8 +129,7 @@ a:hover {
 }
 
 .boton-grad:hover {
-    background-position: right center;
-    /* change the direction of the change here */
+    background-position: right center;/*cambio de direccion del fondo*/
     color: #fff;
     text-decoration: none;
 }
@@ -141,7 +140,7 @@ a:hover {
 
 
 /* -----ESTILOS DEL NAVBAR------ */
-
+/* estios del navbar en version light, cuando se ve la clase .dark adelante es el manejo de atributos para el modo oscuro que se activa con el toggle en js */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -173,6 +172,7 @@ a:hover {
     transform: scale(1.1);
 }
 
+/* estilos de la barra de navegacion */
 .nav-links {
     display: flex;
     list-style: none;
@@ -204,7 +204,8 @@ a:hover {
 }
 
 .nav-links li a:hover {
-    text-shadow: 0 0 10px rgb(19, 48, 108), 0 0 20px rgb(19, 48, 108), 0 0 40px rgb(19, 48, 108), 0 0 80px rgb(19, 48, 108);
+    color: var(--secondary-color);
+    font-weight: bold;
 }
 
 .dark .nav-links li a {
@@ -222,6 +223,11 @@ a:hover {
     text-shadow: 0 0 10px var(--tertiary-color), 0 0 20px var(--tertiary-color), 0 0 40px var(--tertiary-color), 0 0 80px var(--tertiary-color);
 }
 
+.dark .nav-links li a:hover {
+    color: rgb(0, 170, 255);
+}
+
+/* esta clase indica que el color de los inconos es originalmente negro, y cuando se activa el modo oscuro se invierte - filter invert es el negativo, por ende se ve blanco */
 .icono-blanco {
     filter: invert(0);
 }
@@ -230,9 +236,7 @@ a:hover {
     filter: invert(1);
 }
 
-.dark .nav-links li a:hover {
-    text-shadow: 0 0 10px cyan, 0 0 20px cyan, 0 0 40px cyan, 0 0 80px cyan;
-}
+
 
 /* menu hamburguesa */
 .burger {
@@ -244,6 +248,7 @@ a:hover {
     display: none;
 }
 
+/* las tres lineas clasicas de un menu hamburguesa */
 .burger span {
     background: black !important;
     display: block;
@@ -258,6 +263,7 @@ a:hover {
     transition: .25s ease-in-out;
 }
 
+/* estas clases controlan el comportamiento de las tres lineas para que al hacer click, se muevan formando una cruz y vuelvan a su estado orginal */
 .burger span:nth-of-type(1) {
     top: 0px;
     transform-origin: left center;
@@ -273,6 +279,7 @@ a:hover {
     top: 100%;
     transform-origin: left center;
     transform: translateY(-100%);
+    /* esta borra */
 }
 
 .burger.active span:nth-of-type(1) {
@@ -425,16 +432,20 @@ a:hover {
     background-color: var(--background-dark) !important;
 }
 
+/* las medias queries manejan los atributos de cada clase de acuerdo al tamaño de la pantalla. En este caso se maneja la visibilidad del menu hamburguesa cuando la pantalla es mas pequeña de 935 pixeles */
 @media (max-width: 935px) {
     .nav-links {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 60px;
+        top: 50px;
         right: 0;
         width: 100%;
-        padding: 20px 0;
         z-index: 1000;
+    }
+
+    .nav-links li a{
+        height: 2em;
     }
 
     .nav-links.active {
@@ -454,11 +465,6 @@ a:hover {
         display: block;
     }
 }
-
-
-
-
-
 
 
 
@@ -547,10 +553,21 @@ a:hover {
 @media (max-width: 960px) {
     .container-perfil {
         flex-direction: column;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .card-interna-perfil {
+        width: 100%;
+        margin: 0 auto;
     }
 
     #perfil {
         width: 100%;
+    }
+
+    .fotoperfil {
+        width: 50vw !important;                 
     }
 
     #sobre-mi {
@@ -560,6 +577,8 @@ a:hover {
     #contacto {
         width: 100% !important;
     }
+
+    
 }
 
 @media (max-width: 650px) {
@@ -587,10 +606,6 @@ a:hover {
         font-size: 11px;
     }
 }
-
-
-
-
 
 
 /* -----ESTILOS PAGINA PROYECTOS------ */
@@ -644,8 +659,6 @@ a:hover {
 }
 
 
-
-
 /* SECCION CURRICULUM */
 .card-curriculum {
     border-radius: 15px;
@@ -691,11 +704,21 @@ a:hover {
         #perfil {
             display: none;
         }
+
+        #tecnologias {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+    }
+
+    .card-curriculum {
+        width: 100%!important;
+        margin: 0 auto;
     }
 }
 
-    /* -----ESTILOS DE la PAGINA CONTACTAME---- */
 
+/* -----ESTILOS DE la PAGINA CONTACTAME---- */
 
     #contacto {
         width: 70%;
@@ -753,6 +776,15 @@ a:hover {
             #perfil {
                 display: none;
             }
+        }
+
+        #contacto {
+            width: 100%!important;
+            padding: 0;
+        }
+
+        .formulario {
+            width: 100%!important;
         }
     }
 

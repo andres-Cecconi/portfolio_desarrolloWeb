@@ -1,62 +1,71 @@
+//Domcontentloaded es un evento que se dispara cuando el documento HTML ha sido completamente cargado
 document.addEventListener("DOMContentLoaded", () => {
+    //variable darkMode que obtiene el valor de la clave darkMode del localStorage para poder manetner el modo oscuro al navegar entre las páginas
     const darkMode = localStorage.getItem('darkMode');
-
+    //Si la variable darkMode (obtenida del localStorage) es igual a true, se añade la clase dark al body, header y footer
     if (darkMode === 'true') {
         document.body.classList.add('dark');
         document.querySelector('header').classList.add('modo-oscuro');
         document.querySelector('footer').classList.add('modo-oscuro');
     }
 
-    document.body.classList.remove('dark'); // Restablece el modo claro
+    // document.body.classList.remove('dark'); //En una primera instancia removia el modo oscuro al recargar la página, pero lo comente ya que no es necesario. No lo borre por si se necesita en un futuro
+
     // MENU HAMBURGUESA
+    //Se obtienen los elementos del DOM con las clases .burger y .nav-links mediante el método querySelector
     const hamburguesa = document.querySelector('.burger');
     const navLinks = document.querySelector('.nav-links');
 
+    //Se añade un evento click al elemento hamburguesa, que al hacer click, añade o remueve la clase active a los elementos hamburguesa y navLinks
     hamburguesa.addEventListener('click', () => {
         navLinks.classList.toggle('active');
         hamburguesa.classList.toggle('active');
     });
 
     // DARK MODE
+    //Se obtiene el elemento del DOM con la clase .switch mediante el método querySelector
     const toggle = document.querySelector('.switch input[type="checkbox"]');
 
+    //Si la variable darkMode (obtenida del localStorage) es igual a true, se añade la clase dark al body y se marca el input checkbox  como checked
     if (darkMode === 'true') {
         document.body.classList.add('dark');
         toggle.checked = true;
     }
 
+    //Se obtienen los elementos del DOM con las clases .sun, .moon, header y footer mediante el método querySelector
     const light = document.querySelector('.sun');
     const dark = document.querySelector('.moon');
     const header = document.querySelector('header');
     const footer = document.querySelector('footer');
-    const logo = document.querySelector('.logo img');
 
+    //Se añade un evento change al elemento toggle, que al cambiar de estado, añade o remueve las clases dark y active a los elementos body, light, dark, header y footer, y guarda el estado del toggle en el localStorage
     toggle.addEventListener('change', () => {
         document.body.classList.toggle('dark');
         light.classList.toggle('active');
         dark.classList.toggle('active');
         header.classList.toggle('modo-oscuro');
         footer.classList.toggle('modo-oscuro');
-        if (toggle.checked) {
-            logo.src = '../assets/logo-no-bg.png';
-        } else {
-            logo.src = '../assets/logo-no-bg.png';//cambiar logos cuando los tenga (un logo para modo light y otro para modo dark)
-        }
         localStorage.setItem('darkMode', toggle.checked);
     });
 
+
+    // FORMULARIO DE CONTACTO
+    //Se obtienen los elementos del DOM con las clases #contacto, #nombre, #email y #mensaje mediante el método querySelector
     const formulario = document.querySelector('#contacto form');
     const nombreInput = document.querySelector('#nombre');
     const emailInput = document.querySelector('#email');
     const mensajeInput = document.querySelector('#mensaje');
 
+    //Se añade un evento submit al formulario, que al enviar el formulario, previene el comportamiento por defecto, y se obtienen los valores de los campos nombre, email y mensaje, se validan los campos y se muestra un mensaje de error si no se cumple con las validaciones
     formulario.addEventListener('submit', (e) => {
         e.preventDefault();
 
+        //Se obtienen los valores de los campos nombre, email y mensaje, se eliminan los espacios en blanco al inicio y al final de cada valor
         const nombre = nombreInput.value.trim();
         const email = emailInput.value.trim();
         const mensaje = mensajeInput.value.trim();
 
+        //Se validan los campos y se muestra un mensaje de error si no se cumple con las validaciones mediante la librería SweetAlert2
         if (nombre === '') {
             Swal.fire({
                 title: 'Error',
@@ -68,6 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+        //Se valida que el campo nombre tenga la estructura basica de un mail mediante una expresión regular 
         if (!email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
             Swal.fire({
                 title: 'Error',
@@ -108,6 +118,8 @@ document.addEventListener("DOMContentLoaded", () => {
             icon: 'success',
             confirmButtonText: 'Aceptar'
         });
+
+        //Se resetea el formulario al finalizar el envío
         formulario.reset();
     });
 
