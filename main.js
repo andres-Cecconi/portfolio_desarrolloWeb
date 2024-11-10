@@ -50,87 +50,86 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // VALIDACION FORMULARIO DE CONTACTO
-    document.addEventListener("DOMContentLoaded", () => {
-        const formulario = document.querySelector('#contacto form');
-        const nombreInput = document.querySelector('#nombre');
-        const emailInput = document.querySelector('#email');
-        const mensajeInput = document.querySelector('#mensaje');
+    const formulario = document.querySelector('#contacto form');
+    const nombreInput = document.querySelector('#nombre');
+    const emailInput = document.querySelector('#email');
+    const mensajeInput = document.querySelector('#mensaje');
+    const submitButton = document.querySelector('#submitButton');
 
-        formulario.addEventListener('submit', (e) => {
-            e.preventDefault();
+    submitButton.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevenir cualquier envío de formulario
 
-            const nombre = nombreInput.value.trim();
-            const email = emailInput.value.trim();
-            const mensaje = mensajeInput.value.trim();
+        const nombre = nombreInput.value.trim();
+        const email = emailInput.value.trim();
+        const mensaje = mensajeInput.value.trim();
 
-            //validaciones basicas de campos
-            if (nombre === '') {
-                Swal.fire({
-                    title: 'Error',
-                    text: 'Por favor, ingresa tu nombre',
-                    icon: 'error',
-                    confirmButtonText: 'Aceptar'
-                });
-                nombreInput.focus();
-                return;
-            }
-
-            if (!email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
-                Swal.fire({
-                    title: 'Error',
-                    text: 'Por favor, ingresa un email válido',
-                    icon: 'error',
-                    confirmButtonText: 'Aceptar'
-                });
-                emailInput.focus();
-                return;
-            }
-
-            if (mensaje === '') {
-                Swal.fire({
-                    title: 'Error',
-                    text: 'Por favor, ingresa un mensaje',
-                    icon: 'error',
-                    confirmButtonText: 'Aceptar'
-                });
-                mensajeInput.focus();
-                return;
-            }
-
-            if (mensaje.length < 10) {
-                Swal.fire({
-                    title: 'Error',
-                    text: 'Por favor, ingresa un mensaje más largo (mínimo 10 caracteres)',
-                    icon: 'error',
-                    confirmButtonText: 'Aceptar'
-                });
-                mensajeInput.focus();
-                return;
-            }
-
-            //validacion de captcha
-            const captchaResponse = grecaptcha.getResponse();
-            if (!captchaResponse) {
-                Swal.fire({
-                    title: 'Error',
-                    text: 'Por favor, completa el captcha',
-                    icon: 'error',
-                    confirmButtonText: 'Aceptar'
-                });
-                return;
-            } 
-            // Confirmación de mensaje enviado (solo simulado)
+        if (nombre === '') {
             Swal.fire({
-                title: 'Gracias por tu mensaje!',
-                text: 'Este es un mensaje de confirmación simulado. No se enviarán datos.',
-                icon: 'success',
+                title: 'Error',
+                text: 'Por favor, ingresa tu nombre',
+                icon: 'error',
                 confirmButtonText: 'Aceptar'
-            }).then(() => {
-                formulario.reset(); // Limpia el formulario después de la simulación
-                grecaptcha.reset(); // Resetea el reCAPTCHA para que se pueda volver a completar
             });
+            nombreInput.focus();
+            return;
+        }
+
+        if (!email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
+            Swal.fire({
+                title: 'Error',
+                text: 'Por favor, ingresa un email válido',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            });
+            emailInput.focus();
+            return;
+        }
+
+        if (mensaje === '') {
+            Swal.fire({
+                title: 'Error',
+                text: 'Por favor, ingresa un mensaje',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            });
+            mensajeInput.focus();
+            return;
+        }
+
+        if (mensaje.length < 10) {
+            Swal.fire({
+                title: 'Error',
+                text: 'Por favor, ingresa un mensaje más largo (mínimo 10 caracteres)',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            });
+            mensajeInput.focus();
+            return;
+        }
+
+        const captchaResponse = grecaptcha.getResponse();
+        if (!captchaResponse) {
+            Swal.fire({
+                title: 'Error',
+                text: 'Por favor, completa el captcha',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            });
+            return;
+        }
+
+        // Confirmación de mensaje enviado (solo simulado)
+        Swal.fire({
+            title: 'Gracias por tu mensaje!',
+            text: 'Este es un mensaje de confirmación simulado. No se enviarán datos.',
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
+        }).then(() => {
+            formulario.reset(); // Limpia el formulario después de la simulación
+            grecaptcha.reset(); // Resetea el reCAPTCHA para que se pueda volver a completar
         });
     });
+
 
 
 
