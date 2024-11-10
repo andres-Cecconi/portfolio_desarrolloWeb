@@ -35,8 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.classList.toggle('dark');
         light.classList.toggle('active');
         dark.classList.toggle('active');
-        header.classList.toggle('dark');
-        footer.classList.toggle('dark');
+        header.classList.toggle('modo-oscuro');
+        footer.classList.toggle('modo-oscuro');
         if (toggle.checked) {
             logo.src = '../assets/logo-no-bg.png';
         } else {
