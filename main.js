@@ -128,6 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         confirmButtonText: 'Aceptar'
                     });
                     formulario.reset();
+                    formulario.submit();
                 } else {
                     // Si el captcha no es válido, se muestra un mensaje de error
                     Swal.fire({
