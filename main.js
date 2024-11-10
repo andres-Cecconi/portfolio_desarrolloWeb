@@ -50,22 +50,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // FORMULARIO DE CONTACTO
-    //Se obtienen los elementos del DOM con las clases #contacto, #nombre, #email y #mensaje mediante el método querySelector
     const formulario = document.querySelector('#contacto form');
     const nombreInput = document.querySelector('#nombre');
     const emailInput = document.querySelector('#email');
     const mensajeInput = document.querySelector('#mensaje');
 
-    //Se añade un evento submit al formulario, que al enviar el formulario, previene el comportamiento por defecto, y se obtienen los valores de los campos nombre, email y mensaje, se validan los campos y se muestra un mensaje de error si no se cumple con las validaciones
     formulario.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        //Se obtienen los valores de los campos nombre, email y mensaje, se eliminan los espacios en blanco al inicio y al final de cada valor
         const nombre = nombreInput.value.trim();
         const email = emailInput.value.trim();
         const mensaje = mensajeInput.value.trim();
 
-        //Se validan los campos y se muestra un mensaje de error si no se cumple con las validaciones mediante la librería SweetAlert2
+        //verificaciones basicas
         if (nombre === '') {
             Swal.fire({
                 title: 'Error',
@@ -77,7 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        //Se valida que el campo nombre tenga la estructura basica de un mail mediante una expresión regular 
         if (!email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
             Swal.fire({
                 title: 'Error',
@@ -89,7 +85,6 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        //Validacion del campo mensaje, si el campo mensaje está vacío, se muestra un mensaje de error
         if (mensaje === '') {
             Swal.fire({
                 title: 'Error',
@@ -112,38 +107,30 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        //Se valida el captcha
+        // Verificar que el captcha se completó
         const captchaResponse = grecaptcha.getResponse();
-        const secretKey = '6LezU3oqAAAAAO9ysCE2-bAb1KcmELGxn9VOUb9J';
-
-        fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${captchaResponse}`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    // Si el captcha es válido, se envía el formulario
-                    Swal.fire({
-                        title: 'Gracias por tu mensaje! Te respondere a la brevedad',
-                        text: 'Tu mensaje ha sido enviado con éxito',
-                        icon: 'success',
-                        confirmButtonText: 'Aceptar'
-                    });
-                    formulario.reset();
-                    formulario.submit();
-                } else {
-                    // Si el captcha no es válido, se muestra un mensaje de error
-                    Swal.fire({
-                        title: 'Error',
-                        text: 'Por favor, completa el captcha',
-                        icon: 'error',
-                        confirmButtonText: 'Aceptar'
-                    });
-                    return;
-                }
-            })
-            .catch(error => {
-                console.error(error);
+        if (!captchaResponse) {
+            Swal.fire({
+                title: 'Error',
+                text: 'Por favor, completa el captcha',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
             });
+            return;
+        }
+
+        // Enviar el formulario si todas las validaciones son correctas
+        Swal.fire({
+            title: 'Gracias por tu mensaje! Te responderé a la brevedad.',
+            text: 'Tu mensaje ha sido enviado con éxito.',
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
+        }).then(() => {
+            formulario.submit(); // Este submit funcionará solo si hay un backend para procesar los datos y validar el captcha
+        });
     });
+});
+
 
     //DESCARGAR CV
     //Se guarda en la variable botonCV el elemento del DOM con el id boton-cv mediante el método getElementById
