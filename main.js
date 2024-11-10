@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (data.success) {
                     // Si el captcha es válido, se envía el formulario
                     Swal.fire({
-                        title: 'Mensaje enviado',
+                        title: 'Gracias por tu mensaje! Te respondere a la brevedad',
                         text: 'Tu mensaje ha sido enviado con éxito',
                         icon: 'success',
                         confirmButtonText: 'Aceptar'
@@ -136,14 +136,12 @@ document.addEventListener("DOMContentLoaded", () => {
                         icon: 'error',
                         confirmButtonText: 'Aceptar'
                     });
+                    return;
                 }
             })
             .catch(error => {
                 console.error(error);
             });
-
-        //Se resetea el formulario al finalizar el envío
-        formulario.reset();
     });
 
     //DESCARGAR CV
