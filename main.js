@@ -123,4 +123,52 @@ document.addEventListener("DOMContentLoaded", () => {
         formulario.reset();
     });
 
+    //DESCARGAR CV
+    //Se guarda en la variable botonCV el elemento del DOM con el id boton-cv mediante el método getElementById
+    const botonCV = document.getElementById('boton-cv');
+
+    //Se añade un evento click al elemento botonCV, que al hacer click, se crea un enlace con el archivo curriculum.pdf y se descarga el archivo
+    botonCV.addEventListener('click', () => {
+        const archivo = '../assets/curriculum.pdf';
+        const nombreArchivo = 'curriculum.pdf';
+
+
+        const enlace = document.createElement('a');
+        //Se crea un enlace con el archivo curriculum.pdf 
+        enlace.href = archivo;
+        //Se añaden los atributos target, rel y download al enlace para que se abra en una nueva pestaña, se evite el phishing y se descargue el archivo
+        enlace.target = '_blank';
+        enlace.rel = 'noopener noreferrer';
+        //Se descarga el archivo curriculum.pdf con el nombre curriculum.pdf
+        enlace.download = nombreArchivo;
+    });
+
+    //VALIDACION DEL CAPTCHA
+    const captchaResponse = grecaptcha.getResponse();
+    const secretKey = '6LezU3oqAAAAAO9ysCE2-bAb1KcmELGxn9VOUb9J';
+
+    fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${captchaResponse}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                //mensaje de éxito con SweetAlert2
+                Swal.fire({
+                    title: 'Mensaje enviado',
+                    text: 'Tu mensaje ha sido enviado con éxito',
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar'
+                });
+            } else {
+                //mensaje de error con SweetAlert2
+                Swal.fire({
+                    title: 'Error',
+                    text: 'Por favor, completa el captcha',
+                    icon: 'error',
+                    confirmButtonText: 'Aceptar'
+                });
+            }
+        })
+        .catch(error => {
+            console.error(error);
+        });
 });
