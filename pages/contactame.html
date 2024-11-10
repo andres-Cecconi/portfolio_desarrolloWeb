@@ -108,13 +108,14 @@
                     <h1>Contactame</h1>
                     <form method="post">
                         <label for="nombre">Nombre:</label>
-                        <input type="text" id="nombre" name="nombre" required>
+                        <input type="text" id="nombre" name="nombre" >
 
                         <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
+                        <!-- Aqui en el input, se puede agregar type="email" para que haga una validacion desde el html tmb, pero yo la saque para realizar esta validacion desde js -->
+                        <input id="email" name="email">
 
                         <label for="mensaje">Mensaje:</label>
-                        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+                        <textarea id="mensaje" name="mensaje" rows="4"></textarea>
 
                         <div class="d-flex justify-content-center">
                             <button type="submit" class="boton-grad">Enviar</button>

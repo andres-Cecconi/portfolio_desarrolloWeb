@@ -44,4 +44,45 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         localStorage.setItem('darkMode', toggle.checked);
     });
+
+    const formulario = document.querySelector('#contacto form');
+    const nombreInput = document.querySelector('#nombre');
+    const emailInput = document.querySelector('#email');
+    const mensajeInput = document.querySelector('#mensaje');
+
+    formulario.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const nombre = nombreInput.value.trim();
+        const email = emailInput.value.trim();
+        const mensaje = mensajeInput.value.trim();
+
+        if (nombre === '') {
+            alert('Por favor, ingresa tu nombre');
+            nombreInput.focus();
+            return;
+        }
+
+        if (!email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
+            alert('Por favor, ingresa un email válido');
+            emailInput.focus();
+            return;
+        }
+
+        if (mensaje === '') {
+            alert('Por favor, ingresa un mensaje');
+            mensajeInput.focus();
+            return;
+        }
+
+        if (mensaje.length < 10) {
+            alert('Por favor, ingresa un mensaje más largo (mínimo 10 caracteres)');
+            mensajeInput.focus();
+            return;
+        }
+
+        // Si todo está bien, envía el formulario
+        alert('Formulario enviado correctamente');
+        formulario.reset();
+    });
 });
