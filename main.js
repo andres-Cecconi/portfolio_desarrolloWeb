@@ -63,6 +63,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const email = emailInput.value.trim();
         const mensaje = mensajeInput.value.trim();
 
+        //validacion de campos
+        //Si el campo nombre está vacío, se muestra un mensaje de error y se enfoca en el campo nombre
         if (nombre === '') {
             Swal.fire({
                 title: 'Error',
@@ -74,6 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+        //Si el campo email está vacío, se muestra un mensaje de error y se enfoca en el campo email, tambien verifica que la estructura del email sea correcta asegurandose que contenga un @ y un punto
         if (!email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
             Swal.fire({
                 title: 'Error',
@@ -85,6 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+        //Si el campo mensaje está vacío, se muestra un mensaje de error y se enfoca en el campo mensaje
         if (mensaje === '') {
             Swal.fire({
                 title: 'Error',
@@ -96,6 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+        //Si el campo mensaje tiene menos de 10 caracteres, se muestra un mensaje de error y se enfoca en el campo mensaje
         if (mensaje.length < 10) {
             Swal.fire({
                 title: 'Error',
@@ -107,6 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+        // Validación de reCAPTCHA
         const captchaResponse = grecaptcha.getResponse();
         if (!captchaResponse) {
             Swal.fire({
