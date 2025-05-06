@@ -531,7 +531,7 @@ a:hover {
     width: 3em!important;
     height: auto;
     cursor: pointer;
-    transition: 0.3s;
+    transition: 0.3fs;
 }
 
 .botonera-redes-perfil a img:hover {
