@@ -1,26 +1,59 @@
-# Portfolio Personal – Diseño y Desarrollo Web
-___
-Este proyecto es parte de la materia **Diseño y Desarrollo Web** de UADE y tiene como objetivo mostrar mis habilidades en diseño y desarrollo de interfaces modernas, priorizando la experiencia del usuario.
+# 💼 Portfolio Personal – Andrés Cecconi
 
-## Descripción del Sitio
+Este sitio fue creado originalmente como proyecto académico para la materia **Diseño y Desarrollo Web** (UADE), y hoy funciona como mi portfolio personal profesional. Refleja mis conocimientos actuales en desarrollo frontend y muestra algunos de los proyectos que realicé tanto académicos como personales.
 
-El portfolio presenta un diseño limpio, moderno y profesional, con un enfoque en la usabilidad y el impacto visual. La estética del sitio está pensada para captar la atención del usuario y facilitar la navegación a través de secciones claras y bien estructuradas. Ofrece una experiencia intuitiva tanto en modo claro como en modo oscuro, permitiendo al usuario elegir la versión que más le acomode y brindando una interacción visualmente atractiva en ambas opciones.
+---
 
-### Tecnologías Utilizadas:
+## 🧐 Sobre el sitio
 
-- HTML5: Para la estructura semántica del sitio.
-- CSS3: Para los estilos y efectos visuales.
-- JavaScript: Para la interactividad y funcionalidades dinámicas.
-- Bootstrap: Para un diseño responsivo y consistente en todas las pantallas.
-- Sweet Alert: Para notificaciones y alertas personalizadas, mejorando la interacción.
-- Google reCAPTCHA API: Para protección contra bots en el formulario de contacto.
+El sitio tiene una estética clara y moderna, pensada para facilitar la lectura y navegación. Está dividido en secciones bien definidas (inicio, servicios, proyectos, CV y contacto), y presenta tanto mis habilidades técnicas como una breve descripción personal y profesional.
 
-### Funcionalidades Principales:
+También incluye **modo claro/oscuro**, pensado para adaptarse a las preferencias de cada usuario.
 
-- Diseño Adaptativo: Optimizado para dispositivos móviles, tabletas y pantallas grandes.
-- Interfaz Clara y Organizada: Las secciones de servicios, proyectos, currículum y contacto están claramente separadas y organizadas.
-- Modo Oscuro y Claro: Implementación de un modo oscuro para mejorar la accesibilidad y adaptarse a las preferencias de cada usuario.
-- Descarga de Currículum: Un botón destacado para descargar mi currículum en PDF, facilitando el acceso a mi información profesional.
+---
 
-## AUTOR
-### Andres Cecconi
+## 🛠️ Tecnologías utilizadas
+
+- **HTML5** – Estructura semántica y accesible.
+- **CSS3** – Estilos personalizados y adaptables.
+- **JavaScript** – Funcionalidades dinámicas e interactividad.
+- **Bootstrap 5** – Diseño responsive y componentes reutilizables.
+- **SweetAlert2** – Validaciones y mensajes personalizados para el formulario.
+- **Formspree** – Envío real de mensajes desde el formulario de contacto.
+
+---
+
+## ✨ Funcionalidades destacadas
+
+- ✅ **Modo claro/oscuro** con guardado en localStorage.
+- ✅ **Formulario de contacto funcional** validado con JS y SweetAlert.
+- ✅ **Currículum descargable en PDF** con botón directo.
+- ✅ **Secciones de proyectos y experiencia** organizadas y en crecimiento.
+- ✅ **Diseño responsive** para todos los tamaños de pantalla.
+- ✅ **Validaciones de formularios 100% con JavaScript**, sin depender de validación nativa.
+
+---
+
+## 📁 Estructura del proyecto
+
+```
+portfolio/
+├── assets/                → Imágenes, íconos y PDF del CV
+├── css/                   → Hoja de estilos principal
+├── main.js                → Funcionalidades generales (modo oscuro, validaciones, etc.)
+├── index.html             → Página principal (sobre mí + introducción)
+└── pages/
+    ├── servicios.html     → Sección sobre lo que puedo aportar
+    ├── proyectos.html     → Lista de proyectos destacados
+    ├── curriculum.html    → CV visual
+    └── contactame.html    → Formulario de contacto
+```
+
+---
+
+## 👨‍💻 Autor
+
+**Andrés Cecconi**  
+Frontend Developer Jr.  
+📧 cecconiandres.dev@gmail.com  
+🔗 [GitHub](https://github.com/andres-Cecconi) | [LinkedIn](https://www.linkedin.com/in/andres-cecconi-b7b9a718b/)

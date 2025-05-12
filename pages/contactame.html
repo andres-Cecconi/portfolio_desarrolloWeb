@@ -58,8 +58,10 @@
                         <h2 class="bold fs-1">Andres Cecconi</h2>
                         <h5 class="fs-4">Frontend Developer</h5>
                         <div class="botonera-redes-perfil">
-                            <a href="https://www.linkedin.com/in/andres-cecconi-b7b9a718b/" target="_blank" class="icono-blanco"><img src="../assets/linkedin.svg" alt="linkedin"></a>
-                            <a href="https://github.com/andres-Cecconi" target="_blank" class="icono-blanco"><img src="../assets/github.svg" alt="github"></a>
+                            <a href="https://www.linkedin.com/in/andres-cecconi-b7b9a718b/" target="_blank"
+                                class="icono-blanco"><img src="../assets/linkedin.svg" alt="linkedin"></a>
+                            <a href="https://github.com/andres-Cecconi" target="_blank" class="icono-blanco"><img
+                                    src="../assets/github.svg" alt="github"></a>
                         </div>
 
                         <!-- card interna -->
@@ -94,37 +96,32 @@
             </section>
 
 
-            <!-- Formulario Contacto -->
             <section id="contacto">
-                <div class="formulario ">
+                <div class="formulario">
                     <h1>Contactame</h1>
-                    <form method="post">
+                    <form action="https://formspree.io/f/xzzrakjw" method="POST" id="formulario-contacto">
                         <label for="nombre">Nombre:</label>
-                        <input type="text" id="nombre" name="nombre" >
-
+                        <input type="text" id="nombre" name="nombre">
+            
                         <label for="email">Email:</label>
-                        <!-- Aqui en el input, se puede agregar type="email" para que haga una validacion desde el html tmb, pero yo la saque para realizar esta validacion desde js -->
-                        <input id="email" name="email">
-
+                        <input type="text" id="email" name="email">
+            
                         <label for="mensaje">Mensaje:</label>
                         <textarea id="mensaje" name="mensaje" rows="4"></textarea>
-
-                        <!-- Captcha -->
-                        <div class="g-recaptcha d-flex justify-content-center my-3" data-sitekey="6LezU3oqAAAAAAfYK-s7EeyWxyVa5_37aEa-LfEL"></div>
-
-                        <div class="d-flex justify-content-center">
-                            <button type="button" id="submitButton" class="boton-grad">Enviar</button>
-                        </div>  
+            
+                        <!-- Honeypot anti-spam -->
+                        <input type="text" name="_gotcha" style="display: none;">
+            
+                        <div class="d-flex justify-content-center mt-3">
+                            <button type="submit" class="boton-grad">Enviar</button>
+                        </div>
                     </form>
                 </div>
             </section>
+            
+
         </div>
     </main>
-
-    <!-- <main id="contacto">
-        
-    </main> -->
-
 
     <footer>
         <div>

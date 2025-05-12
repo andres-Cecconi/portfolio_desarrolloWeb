@@ -50,21 +50,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // VALIDACION FORMULARIO DE CONTACTO
-    const formulario = document.querySelector('#contacto form');
+    // Se obtiene el formulario y los campos necesarios mediante sus IDs
+    const formulario = document.querySelector('#formulario-contacto');
     const nombreInput = document.querySelector('#nombre');
     const emailInput = document.querySelector('#email');
     const mensajeInput = document.querySelector('#mensaje');
-    const submitButton = document.querySelector('#submitButton');
 
-    submitButton.addEventListener('click', (e) => {
-        e.preventDefault(); // Prevenir cualquier envío de formulario
+    // Se añade un evento 'submit' al formulario
+    formulario.addEventListener('submit', (e) => {
+        e.preventDefault(); // Previene el envío por defecto del formulario
 
+        // Se obtienen y recortan los valores ingresados por el usuario
         const nombre = nombreInput.value.trim();
         const email = emailInput.value.trim();
         const mensaje = mensajeInput.value.trim();
 
-        //validacion de campos
-        //Si el campo nombre está vacío, se muestra un mensaje de error y se enfoca en el campo nombre
+        // VALIDACIONES con SweetAlert2
+
+        // Validación: campo nombre vacío
         if (nombre === '') {
             Swal.fire({
                 title: 'Error',
@@ -76,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        //Si el campo email está vacío, se muestra un mensaje de error y se enfoca en el campo email, tambien verifica que la estructura del email sea correcta asegurandose que contenga un @ y un punto
+        // Validación: email con formato incorrecto
         if (!email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
             Swal.fire({
                 title: 'Error',
@@ -88,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        //Si el campo mensaje está vacío, se muestra un mensaje de error y se enfoca en el campo mensaje
+        // Validación: mensaje vacío
         if (mensaje === '') {
             Swal.fire({
                 title: 'Error',
@@ -100,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        //Si el campo mensaje tiene menos de 10 caracteres, se muestra un mensaje de error y se enfoca en el campo mensaje
+        // Validación: mensaje muy corto
         if (mensaje.length < 10) {
             Swal.fire({
                 title: 'Error',
@@ -112,29 +115,48 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // Validación de reCAPTCHA
-        const captchaResponse = grecaptcha.getResponse();
-        if (!captchaResponse) {
-            Swal.fire({
-                title: 'Error',
-                text: 'Por favor, completa el captcha',
-                icon: 'error',
-                confirmButtonText: 'Aceptar'
-            });
-            return;
-        }
+        // Si todas las validaciones se pasan, se crea un FormData con el formulario
+        const formData = new FormData(formulario);
 
-        // Confirmación de mensaje enviado (solo simulado)
-        Swal.fire({
-            title: 'Gracias por tu mensaje!',
-            text: 'Este es un mensaje de confirmación simulado. No se enviarán datos.',
-            icon: 'success',
-            confirmButtonText: 'Aceptar'
-        }).then(() => {
-            formulario.reset(); // Limpia el formulario después de la simulación
-            grecaptcha.reset(); // Resetea el reCAPTCHA para que se pueda volver a completar
-        });
+        // Se envía el formulario a Formspree mediante fetch()
+        fetch("https://formspree.io/f/xzzrakjw", {
+            method: "POST",
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+            .then(response => {
+                // Si la respuesta es exitosa, se muestra una alerta de éxito y se limpia el formulario
+                if (response.ok) {
+                    Swal.fire({
+                        title: '¡Mensaje enviado!',
+                        text: 'Gracias por contactarme. Te responderé pronto.',
+                        icon: 'success',
+                        confirmButtonText: 'Aceptar'
+                    });
+                    formulario.reset();
+                } else {
+                    // Si hubo un error en el servidor, se muestra una alerta de error
+                    Swal.fire({
+                        title: 'Error',
+                        text: 'No se pudo enviar el mensaje. Intentalo más tarde.',
+                        icon: 'error',
+                        confirmButtonText: 'Aceptar'
+                    });
+                }
+            })
+            .catch(() => {
+                // Si el fetch falla (por conexión, por ejemplo), se muestra otro mensaje de error
+                Swal.fire({
+                    title: 'Error',
+                    text: 'No se pudo conectar con el servidor.',
+                    icon: 'error',
+                    confirmButtonText: 'Aceptar'
+                });
+            });
     });
+
 
 
 
